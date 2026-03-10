@@ -44,12 +44,13 @@
             padding: 60px 20px;
             max-width: 1000px;
             margin: 0 auto;
-            /* Animation disabled for now - sections show immediately */
-            /* opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; */
+            opacity: 0;
+            transform: translateY(40px);           /* Starting position - hidden below */
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth slide + fade */
         }
         section.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0);             /* Slides up into view */
         }
         .about, .testimonials, .join {
             background: rgba(20, 20, 50, 0.7);
@@ -115,6 +116,13 @@
             background: rgba(0,0,0,0.8);
             border-top: 1px solid rgba(255,215,0,0.2);
             font-size: 0.95em;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        footer.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         footer a { color: var(--accent); text-decoration: none; margin: 0 10px; }
         footer a:hover { text-decoration: underline; }
@@ -185,17 +193,23 @@
     </footer>
 
     <script>
-        // Animation script - disabled by default. To enable: Uncomment the two lines below marked with //*
-        // window.addEventListener('scroll', () => {
-        //     document.querySelectorAll('section').forEach(sec => {
-        //         if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
-        //             sec.classList.add('visible');
-        //         }
-        //     });
-        // });
-        // Force visible on load (always runs)
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('section').forEach(sec => sec.classList.add('visible'));
+        function revealOnScroll() {
+            document.querySelectorAll('section, footer').forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {   // Trigger a bit before fully in view
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Run on scroll
+        window.addEventListener('scroll', revealOnScroll);
+
+        // Run immediately when page loads (so top sections appear right away)
+        window.addEventListener('load', () => {
+            revealOnScroll();           // Show header + first section instantly
+            // Optional: Trigger again after 100ms for perfect timing
+            setTimeout(revealOnScroll, 100);
         });
     </script>
 
