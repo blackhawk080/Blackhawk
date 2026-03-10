@@ -44,9 +44,8 @@
             padding: 60px 20px;
             max-width: 1000px;
             margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            /* Animation disabled for now - sections show immediately */
+            /* opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; */
         }
         section.visible {
             opacity: 1;
@@ -109,6 +108,7 @@
             color: white;
             font-size: 1em;
         }
+        input::placeholder, textarea::placeholder { color: #aaa; }
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -185,15 +185,18 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('section').forEach(sec => {
-                if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
-                    sec.classList.add('visible');
-                }
-            });
+        // Animation script - disabled by default. To enable: Uncomment the two lines below marked with //*
+        // window.addEventListener('scroll', () => {
+        //     document.querySelectorAll('section').forEach(sec => {
+        //         if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+        //             sec.classList.add('visible');
+        //         }
+        //     });
+        // });
+        // Force visible on load (always runs)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('section').forEach(sec => sec.classList.add('visible'));
         });
-        // Trigger on load for above-fold sections
-        document.querySelectorAll('section').forEach(sec => sec.classList.add('visible'));
     </script>
 
 </body>
