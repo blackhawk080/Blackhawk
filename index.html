@@ -29,17 +29,17 @@
              overflow: hidden;
        }
         .header-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             transform: translate(-50%, -50%);
+             z-index: -1;
+    }
 
-header::after {
+      header::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -55,7 +55,9 @@ header .motto {
             font-family: 'Playfair Display', serif;
             font-size: 4.2em;
             color: var(--accent);
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+            text-shadow: 
+                   0 0 10px rgba(201,169,110,0.6),
+                   3px 3px 10px rgba(0,0,0,0.7);
             letter-spacing: 2px;
         }
         .motto {
@@ -84,6 +86,12 @@ header .motto {
             margin: 40px auto;
             box-shadow: 0 15px 40px rgba(0,0,0,0.6);
             backdrop-filter: blur(10px);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            .about:hover,
+.testimonials:hover,
+.join:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
         }
         h2 {
             font-family: 'Playfair Display', serif;
