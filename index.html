@@ -23,17 +23,12 @@
             min-height: 100vh;
         }
         header {
-            .BCV {
-    position: relative;
-    height: 160vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.BCV-video {
+             text-align: center;
+             padding: 100px 20px;
+             position: relative;
+             overflow: hidden;
+       }
+        .header-video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -44,11 +39,18 @@
     z-index: -1;
 }
 
-.BCV-content {
-    position: relative;
-    z-index: 2;
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
 }
-        }
+
+header h1,
+header .motto {
+    position: relative;
+    z-index: 1;
+}
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4.2em;
@@ -161,16 +163,14 @@
 </head>
 <body>
 
-    <header class="BCV">
+<header>
 
-<video autoplay muted loop playsinline class="BCV">
-<source src="hawk.mp4.mp4" type="video/mp4">
-</video>
+    <video autoplay muted loop playsinline class="header-video">
+        <source src="hawk.mp4.mp4" type="video/mp4">
+    </video>
 
-<div class="BCV-content">
-<h1>Black Hawk Syndicate</h1>
-<p class="motto">"Wait. Watch. Strike"</p>
-</div>
+    <h1>Black Hawk Syndicate</h1>
+    <p class="motto">"Wait. Watch. Strike"</p>
 
 </header>
 
