@@ -3,82 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Hawk Syndicate</title>
+    <title>Black Hawk Syndicate – Disciplined Trading</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        <script>
-window.addEventListener('scroll', () => {
-    document.querySelectorAll('section').forEach(sec => {
-        if (sec.getBoundingClientRect().top < window.innerHeight) sec.classList.add('visible');
-    });
-});
-</script>
-       body { font-family: 'Lora', serif; font-size: 1.1em; line-height: 1.8; }
-        header { background: #0d47a1; text-align: center; padding: 50px 20px; }
-        h1 { font-size: 3em; margin: 0; }
-        .motto { font-size: 1.5em; font-style: italic; margin: 10px 0; color: #ffd700; }
-        section { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
-        section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        section.visible { opacity: 1; transform: translateY(0); }
-        .about { background: #333; border-radius: 10px; margin: 20px 0; font-weight: 600; letter-spacing: 1px; }
-        <section class="testimonials" style="text-align:center; background: rgba(0,0,0,0.4); border-radius:12px; padding:40px; margin:40px 0;">
-    <h2 style="color:#ffd700; font-family:'Playfair Display',serif;">What Our Members Say</h2>
-    <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
-        <blockquote style="width:30%; margin:10px; font-style:italic;">"Great signals—doubled my portfolio!" – Raj, Kochi</blockquote>
-        <blockquote style="width:30%; margin:10px; font-style:italic;">"Safe space for learning options." – Priya, Kozhikode</blockquote>
-    </div>
-    <h3 style="color:#e6e6e6; margin-top:30px;">Group Rules</h3>
-    <ul style="text-align:left; max-width:600px; margin:0 auto;">
-        <li>DYOR (Do Your Own Research)</li>
-        <li>No spam—focus on value</li>
-        <li>Respect privacy</li>
-    </ul>
-</section>
-        button { background: #0d47a1; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer; }
-        button:hover { background: #1976d2; }
-        footer { text-align: center; padding: 20px; background: #000; font-size: 0.9em; }
-        @media (max-width: 600px) { h1 { font-size: 2em; } }
+        :root {
+            --primary: #0d47a1;
+            --accent: #ffd700;
+            --dark: #0c1446;
+            --text: #e6e6e6;
+            --bg: #1a1a2e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Lora', serif;
+            font-size: 1.1em;
+            line-height: 1.8;
+            background: linear-gradient(135deg, var(--dark), var(--bg));
+            color: var(--text);
+            min-height: 100vh;
+        }
+        header {
+            background: var(--primary);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+        .motto {
+            font-size: 1.8em;
+            font-style: italic;
+            color: #f0f0f0;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .about, .testimonials, .join {
+            background: rgba(20, 20, 50, 0.7);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid rgba(255,215,0,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .testimonials blockquote {
+            font-style: italic;
+            margin: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            background: rgba(0,0,0,0.3);
+            border-radius: 6px;
+        }
+        button {
+            background: linear-gradient(135deg, var(--accent), #ffed4e);
+            color: var(--dark);
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.5);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin: 30px 0;
+        }
+        input, textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1em;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.8);
+            border-top: 1px solid rgba(255,215,0,0.2);
+            font-size: 0.95em;
+        }
+        footer a { color: var(--accent); text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #bbb;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8em; }
+            section { padding: 40px 15px; }
+        }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Black Hawk Syndicate</h1>
         <p class="motto">"Wait. Watch. Strike"</p>
     </header>
-    
+
     <section class="about">
         <h2>About Us</h2>
-        <p>Black Hawk Syndicate is a trading initiative focused on disciplined market analysis and strategic execution. Our approach is based on patience, precision, and risk management — waiting for high-quality opportunities and acting with confidence when the time is right.
-
-Our philosophy is simple: Wait. Watch. Strike.</section>
-    
-    <section>
-        <h2>Ready to Join?</h2>
-        <p>Connect via Telegram or WhatsApp for signals and chats.</p>
-        <button onclick="window.location.href='https://t.me/+1nCip3XEAmdjZDZl'">Join Telegram</button>
-        <form action="mailto:your.email@gmail.com" method="post" enctype="text/plain" style="margin-top:20px;">
-    <input type="text" placeholder="Your Name" style="padding:10px; margin:5px; width:200px; border-radius:5px; border:1px solid #ffd700;">
-    <input type="email" placeholder="Your Email" style="padding:10px; margin:5px; width:200px; border-radius:5px; border:1px solid #ffd700;">
-    <textarea placeholder="Why join us?" rows="3" style="padding:10px; margin:5px; width:420px; border-radius:5px; border:1px solid #ffd700;"></textarea>
-    <button type="submit">Send Inquiry</button>
-</form>
-        <br><br>
-        <p>Email: blackhawk2026@gmail.com | WhatsApp: +91-xxxxxxxxxx</p>
+        <p>Black Hawk Syndicate is a trading initiative focused on disciplined market analysis and strategic execution. Our approach is based on patience, precision, and risk management — waiting for high-quality opportunities and acting with confidence when the time is right.</p>
+        <p>Our philosophy is simple: <strong>Wait. Watch. Strike.</strong></p>
     </section>
-    
+
+    <section class="testimonials">
+        <h2>What Our Members Say</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <blockquote>"Great signals—doubled my portfolio!" – Raj, Kochi</blockquote>
+            <blockquote>"Safe space for learning options." – Priya, Kozhikode</blockquote>
+        </div>
+        <h3 style="text-align:center; color:#ccc; margin:40px 0 20px;">Group Rules</h3>
+        <ul style="max-width: 600px; margin: 0 auto; list-style: none;">
+            <li>• DYOR (Do Your Own Research)</li>
+            <li>• No spam—focus on value</li>
+            <li>• Respect privacy</li>
+        </ul>
+    </section>
+
+    <section class="join">
+        <h2>Ready to Join?</h2>
+        <p>Connect via Telegram or WhatsApp for signals, discussions, and community chats.</p>
+        <button onclick="window.location.href='https://t.me/+1nCip3XEAmdjZDZl'">Join Telegram</button>
+        
+        <form action="mailto:blackhawk2026@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Why join us? (Optional)" rows="4"></textarea>
+            <button type="submit">Send Inquiry</button>
+        </form>
+        
+        <p style="margin-top: 30px;">Email: blackhawk2026@gmail.com<br>WhatsApp: +91-xxxxxxxxxx</p>
+    </section>
+
     <footer>
-        <p>&copy; BLACK HAWK SYNDICATE
-Black Hawk Syndicate is a trading-focused initiative built on discipline, patience, and strategic market analysis. Our mission is to approach the markets with precision, strong risk management, and continuous learning.
-
-Quick Links
-Home | About | Strategy | Education | Trade Journal | Contact
-
-Resources
-Market Analysis | Trading Guide | Risk Management
-
-Risk Disclaimer
-All rights reserved. | Disclaimer: This site shares ideas only—trade at your own risk. Not financial advice. Regulated by SEBI guidelinesTrading financial markets involves risk and may not be suitable for all investors. Black Hawk Syndicate provides educational and informational content only and does not guarantee profits or financial outcomes
-
-© 2026 Black Hawk Syndicate. All rights reserved.</p>
+        <p>© 2026 Black Hawk Syndicate. All rights reserved.</p>
+        <p class="quick-links">
+            <a href="#">Home</a> | <a href="#about">About</a> | <a href="#">Strategy</a> | <a href="#">Education</a> | <a href="#">Contact</a>
+        </p>
+        <div class="disclaimer">
+            <strong>Risk Disclaimer:</strong> Trading financial markets involves significant risk and may not be suitable for all investors. Black Hawk Syndicate provides educational and informational content only. We do not offer personalized investment advice, guaranteed returns, or act as a SEBI-registered Investment Adviser or Research Analyst. Past performance is not indicative of future results. Always do your own research (DYOR) and consult a qualified professional before making any trading decisions. Use at your own risk.
+        </div>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('section').forEach(sec => {
+                if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+                    sec.classList.add('visible');
+                }
+            });
+        });
+        // Trigger on load for above-fold sections
+        document.querySelectorAll('section').forEach(sec => sec.classList.add('visible'));
+    </script>
+
 </body>
 </html>
