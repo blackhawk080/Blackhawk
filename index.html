@@ -5,12 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Hawk Syndicate</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #1a1a1a; color: #fff; line-height: 1.6; }
+        <script>
+window.addEventListener('scroll', () => {
+    document.querySelectorAll('section').forEach(sec => {
+        if (sec.getBoundingClientRect().top < window.innerHeight) sec.classList.add('visible');
+    });
+});
+</script>
+       body { font-family: 'Lora', serif; font-size: 1.1em; line-height: 1.8; }
         header { background: #0d47a1; text-align: center; padding: 50px 20px; }
         h1 { font-size: 3em; margin: 0; }
         .motto { font-size: 1.5em; font-style: italic; margin: 10px 0; color: #ffd700; }
         section { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
-        .about { background: #333; border-radius: 10px; margin: 20px 0; }
+        section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .about { background: #333; border-radius: 10px; margin: 20px 0; font-weight: 600; letter-spacing: 1px; }
+        <section class="testimonials" style="text-align:center; background: rgba(0,0,0,0.4); border-radius:12px; padding:40px; margin:40px 0;">
+    <h2 style="color:#ffd700; font-family:'Playfair Display',serif;">What Our Members Say</h2>
+    <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
+        <blockquote style="width:30%; margin:10px; font-style:italic;">"Great signals—doubled my portfolio!" – Raj, Kochi</blockquote>
+        <blockquote style="width:30%; margin:10px; font-style:italic;">"Safe space for learning options." – Priya, Kozhikode</blockquote>
+    </div>
+    <h3 style="color:#e6e6e6; margin-top:30px;">Group Rules</h3>
+    <ul style="text-align:left; max-width:600px; margin:0 auto;">
+        <li>DYOR (Do Your Own Research)</li>
+        <li>No spam—focus on value</li>
+        <li>Respect privacy</li>
+    </ul>
+</section>
         button { background: #0d47a1; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer; }
         button:hover { background: #1976d2; }
         footer { text-align: center; padding: 20px; background: #000; font-size: 0.9em; }
@@ -33,14 +55,18 @@ Our philosophy is simple: Wait. Watch. Strike.</section>
         <h2>Ready to Join?</h2>
         <p>Connect via Telegram or WhatsApp for signals and chats.</p>
         <button onclick="window.location.href='https://t.me/+1nCip3XEAmdjZDZl'">Join Telegram</button>
+        <form action="mailto:your.email@gmail.com" method="post" enctype="text/plain" style="margin-top:20px;">
+    <input type="text" placeholder="Your Name" style="padding:10px; margin:5px; width:200px; border-radius:5px; border:1px solid #ffd700;">
+    <input type="email" placeholder="Your Email" style="padding:10px; margin:5px; width:200px; border-radius:5px; border:1px solid #ffd700;">
+    <textarea placeholder="Why join us?" rows="3" style="padding:10px; margin:5px; width:420px; border-radius:5px; border:1px solid #ffd700;"></textarea>
+    <button type="submit">Send Inquiry</button>
+</form>
         <br><br>
-        <p>Email: blackhawk2026@gmail.com | WhatsApp: +91-7306454799</p>
+        <p>Email: blackhawk2026@gmail.com | WhatsApp: +91-xxxxxxxxxx</p>
     </section>
     
     <footer>
         <p>&copy; BLACK HAWK SYNDICATE
-Wait. Watch. Strike.
-
 Black Hawk Syndicate is a trading-focused initiative built on discipline, patience, and strategic market analysis. Our mission is to approach the markets with precision, strong risk management, and continuous learning.
 
 Quick Links
@@ -50,7 +76,7 @@ Resources
 Market Analysis | Trading Guide | Risk Management
 
 Risk Disclaimer
-Trading financial markets involves risk and may not be suitable for all investors. Black Hawk Syndicate provides educational and informational content only and does not guarantee profits or financial outcomes.
+All rights reserved. | Disclaimer: This site shares ideas only—trade at your own risk. Not financial advice. Regulated by SEBI guidelinesTrading financial markets involves risk and may not be suitable for all investors. Black Hawk Syndicate provides educational and informational content only and does not guarantee profits or financial outcomes
 
 © 2026 Black Hawk Syndicate. All rights reserved.</p>
     </footer>
